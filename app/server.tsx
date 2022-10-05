@@ -8,6 +8,7 @@ import RootLayout from "./layout";
 import CoinsIdPage from "./coins/[id]/page";
 
 // Components
+import Interactive from "../components/interactive";
 import Counter from "../components/counter";
 
 const CoinsIdPageMarkup = (
@@ -36,7 +37,9 @@ const CounterPage = () => (
         </head>
         <body>
             <h1>Counter</h1>
-            <Counter />
+            <Interactive name="Counter">
+                <Counter />
+            </Interactive>
         </body>
     </html>
 );
