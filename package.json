@@ -3,11 +3,14 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
+    "sideEffects": false,
     "scripts": {
         "scripts:build": "tsc -p scripts/tsconfig.json",
         "scripts:bundle": "node scripts/build/bundle.js",
+        "scripts:bundle:prod": "NODE_ENV=production node scripts/build/bundle.js",
         "scripts:compress": "node scripts/build/compress.js",
-        "client:bundle": "pnpm scripts:build && pnpm scripts:bundle"
+        "client:bundle": "pnpm scripts:build && pnpm scripts:bundle",
+        "client:bundle:prod": "pnpm scripts:build && pnpm scripts:bundle:prod"
     },
     "prettier": "@pyk/prettier-config",
     "devDependencies": {

@@ -1,7 +1,7 @@
 import fs from "fs";
 import compress from "brotli/compress";
 
-const assetDir = "public/assets/";
+const assetsDir = "public/assets/";
 fs.readdirSync(assetsDir).forEach((file) => {
     if (
         file.endsWith(".js") ||
@@ -10,7 +10,6 @@ fs.readdirSync(assetsDir).forEach((file) => {
     ) {
         const result = compress(fs.readFileSync(assetsDir + file), {
             mode: 1,
-            skipLarger: true,
         });
         fs.writeFileSync(assetsDir + file + ".br", result);
     }
