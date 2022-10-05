@@ -2,3 +2,6 @@ name = "cloudflare-workers-module"
 main = "app/server.tsx"
 compatibility_date = "2022-10-03"
 compatibility_flags = ["streams_enable_constructors"]
+
+[site]
+bucket = "./public"

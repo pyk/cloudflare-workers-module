@@ -1,3 +1,8 @@
+# Scripts
+scripts/build/
+
+public/assets/client.js*
+
 # Logs
 
 logs
