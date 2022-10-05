@@ -1,11 +1,14 @@
 import React from "react";
-import ReactDOMServer from "react-dom/server";
+import { renderToReadableStream } from "react-dom/server";
 
 // Import layout
 import RootLayout from "./layout";
 
 // Import pages
 import CoinsIdPage from "./coins/[id]/page";
+
+// Components
+import Counter from "../components/counter";
 
 const CoinsIdPageMarkup = (
     <RootLayout>
@@ -25,8 +28,26 @@ const coinHandler = () => {
     return new Response("coinHandler");
 };
 
+const CounterPage = () => (
+    <html>
+        <head>
+            <title>Counter</title>
+        </head>
+        <body>
+            <h1>Counter</h1>
+            <Counter />
+        </body>
+    </html>
+);
+
+const counterHandler = async () => {
+    const stream = await renderToReadableStream(<CounterPage />);
+    return new Response(stream);
+};
+
 const patternsToHandlers = new Map([
     [{ pathname: "/coins/:id" }, coinHandler],
+    [{ pathname: "/counter" }, counterHandler],
 ]);
 
 const routingMap = new Map();
